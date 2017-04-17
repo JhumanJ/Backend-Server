@@ -1,0 +1,24 @@
+{
+  "name": "backend-server",
+  "version": "1.0.0",
+  "description": "Server running the node/express backend for the mysl api.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/comp204p-team35/Backend-Server.git"
+  },
+  "keywords": [
+    "Peach",
+    "Back-end",
+    "api"
+  ],
+  "author": "Team 35",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/comp204p-team35/Backend-Server/issues"
+  },
+  "homepage": "https://github.com/comp204p-team35/Backend-Server#readme"
+}
