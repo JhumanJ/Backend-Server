@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/comp204p-team35/Backend-Server/issues"
   },
-  "homepage": "https://github.com/comp204p-team35/Backend-Server#readme"
+  "homepage": "https://github.com/comp204p-team35/Backend-Server#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "mysql": "^2.13.0"
+  }
 }
