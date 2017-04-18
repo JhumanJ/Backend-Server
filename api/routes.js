@@ -49,6 +49,19 @@ module.exports = function(app){
 
     //other routes..
 
+    //Add header
+    app.use(function(req, res, next) {
+       res.header("Access-Control-Allow-Origin", "*");
+       res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+       res.header("Access-Control-Allow-Headers", "X-Requested-With,Content-Type,Cache-Control");
+       if (req.method === 'OPTIONS') {
+        res.statusCode = 204;
+        return res.end();
+      } else {
+        return next();
+      }
+    });
+
     //Add api routes to app
     app.use('/api', router);
     app.use('/api/jobs', jobs_router);
