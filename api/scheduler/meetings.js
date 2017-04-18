@@ -24,7 +24,7 @@ var Meeting = {
   },
   updateMeeting:function(id,Meeting,callback){
     Meeting.meeting_id = parseInt(id);
-    console.log(Meeting);
+    //console.log(Meeting);
     return db.query("UPDATE meetings SET title=?,starting_time=?,ending_time=? WHERE meeting_id= ?",[Meeting.title,Meeting.starting_time,Meeting.ending_time,Meeting.meeting_id],callback);
   },
   initTable:function(){
@@ -32,7 +32,7 @@ var Meeting = {
     (meeting_id MEDIUMINT NOT NULL AUTO_INCREMENT, title varchar(500) NOT NULL, starting_time TIME, ending_time TIME, created_at TIMESTAMP, PRIMARY KEY (meeting_id))
      ENGINE=InnoDB DEFAULT CHARSET=latin1;` , function (error, results, fields) {
       if (error) {
-        console.log(error);
+        //console.log(error);
       }
     });
   }
@@ -88,7 +88,7 @@ router.post('/',function(req,res,next){
 router.delete('/:id',function(req,res,next){
  Meeting.deleteMeeting(req.params.id,function(err,result){
    if(err) {
-     console.log(err);
+     //console.log(err);
      res.json(err);
    } else{
      res.json(result);
@@ -108,7 +108,7 @@ router.put('/:id',function(req,res,next){
     } else {
       Meeting.updateMeeting(req.params.id,req.body.Meeting,function(err,result){
         if(err) {
-          console.log(err);
+          //console.log(err);
           res.json(err);
         } else{
           res.json(result);

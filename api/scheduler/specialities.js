@@ -24,7 +24,7 @@ var Speciality = {
   },
   updateSpeciality:function(id,Speciality,callback){
     Speciality.speciality_id = parseInt(id);
-    console.log(Speciality);
+    // console.log(Speciality);
     return db.query("UPDATE specialities SET name=? WHERE speciality_id= ?",[Speciality.name,Speciality.speciality_id],callback);
   },
   initTable:function(){
@@ -32,7 +32,7 @@ var Speciality = {
     (speciality_id MEDIUMINT NOT NULL AUTO_INCREMENT, name varchar(500) NOT NULL, PRIMARY KEY (speciality_id))
      ENGINE=InnoDB DEFAULT CHARSET=latin1;` , function (error, results, fields) {
       if (error) {
-        console.log(error);
+        //console.log(error);
       }
     });
   }
@@ -81,7 +81,7 @@ router.post('/',function(req,res,next){
 router.delete('/:id',function(req,res,next){
      Speciality.deleteSpeciality(req.params.id,function(err,result){
        if(err) {
-         console.log(err);
+        //  console.log(err);
          res.json(err);
        } else{
          res.json(result);
@@ -94,7 +94,7 @@ router.put('/:id',function(req,res,next){
 
    Speciality.updateSpeciality(req.params.id,req.body.Speciality,function(err,result){
         if(err) {
-          console.log(err);
+        //   console.log(err);
           res.json(err);
         } else{
           res.json(result);

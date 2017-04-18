@@ -34,7 +34,7 @@ var MeetingOccurence = {
     (meeting_occurence_id MEDIUMINT NOT NULL AUTO_INCREMENT, meeting_id MEDIUMINT NOT NULL, occurence_date DATE NOT NULL, PRIMARY KEY (meeting_occurence_id))
      ENGINE=InnoDB DEFAULT CHARSET=latin1;` , function (error, results, fields) {
       if (error) {
-        console.log(error);
+        // console.log(error);
       }
     });
   }
@@ -81,7 +81,7 @@ router.post('/',function(req,res,next){
 
         MeetingOccurence.addMeetingOccurence(req.body.MeetingOccurence,function(err,result){
             if(err) {
-                console.log(err);
+                //console.log(err);
               res.json(err);
             } else{
                 res.status(201);
@@ -95,7 +95,7 @@ router.post('/',function(req,res,next){
 router.delete('/:id',function(req,res,next){
  MeetingOccurence.deleteMeetingOccurence(req.params.id,function(err,result){
    if(err) {
-     console.log(err);
+    //  console.log(err);
      res.json(err);
    } else{
      res.json(result);
@@ -108,7 +108,7 @@ router.put('/:id',function(req,res,next){
 
       MeetingOccurence.updateMeetingOccurence(req.params.id,req.body.MeetingOccurence,function(err,result){
         if(err) {
-          console.log(err);
+        //   console.log(err);
           res.json(err);
         } else{
           res.json(result);

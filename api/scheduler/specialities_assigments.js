@@ -34,7 +34,7 @@ var SpecialityAssigment = {
     (speciality_assigment_id MEDIUMINT NOT NULL AUTO_INCREMENT, speciality_id MEDIUMINT NOT NULL, meeting_id MEDIUMINT NOT NULL, PRIMARY KEY (speciality_assigment_id))
      ENGINE=InnoDB DEFAULT CHARSET=latin1;` , function (error, results, fields) {
       if (error) {
-        console.log(error);
+        //console.log(error);
       }
     });
   }
@@ -95,7 +95,7 @@ router.post('/',function(req,res,next){
 router.delete('/:id',function(req,res,next){
      SpecialityAssigment.deleteSpecialityAssigment(req.params.id,function(err,result){
        if(err) {
-         console.log(err);
+         //console.log(err);
          res.json(err);
        } else{
          res.json(result);
@@ -108,7 +108,7 @@ router.put('/:id',function(req,res,next){
 
    SpecialityAssigment.updateSpecialityAssigment(req.params.id,req.body.SpecialityAssigment,function(err,result){
         if(err) {
-          console.log(err);
+          //console.log(err);
           res.json(err);
         } else{
           res.json(result);

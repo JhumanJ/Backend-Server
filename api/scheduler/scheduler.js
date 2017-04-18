@@ -15,9 +15,8 @@ var Scheduler = {
 
 // Get all meetings in a month with specialities
 router.get('/:month/:year?',function(req,res,next){
-    console.log('hey')
     var callback = function(rows) {
-        console.log("\n\nend "+JSON.stringify(rows));
+        //console.log("\n\nend "+JSON.stringify(rows));
         res.json(rows);
     }
 
@@ -41,8 +40,6 @@ router.get('/:month/:year?',function(req,res,next){
 
             var getSpecialities = function(row) {
 
-                  console.log("\n \n before- "+JSON.stringify(row));
-
                   db.query("select * from specialities_assigments LEFT JOIN specialities ON specialities.speciality_id=specialities_assigments.speciality_id where meeting_id=?",row.meeting_id,function(err,results,fields){
                       if(err) {
                         res.json(err);
@@ -53,7 +50,6 @@ router.get('/:month/:year?',function(req,res,next){
                           if (0 === --pending) {
                                 callback(rows);
                           }
-                          console.log("\n \ndone- "+JSON.stringify(row));
                       }
                   });
             }

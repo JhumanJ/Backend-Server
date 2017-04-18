@@ -24,7 +24,7 @@ var Job = {
   },
   updateJob:function(id,Job,callback){
     Job.job_id = parseInt(id);
-    console.log(Job);
+    // console.log(Job);
     return db.query("UPDATE jobs SET title=?,status=?,comment=?,assigned_to_id=?,patient_id=?,due_date=? WHERE job_id= ?",[Job.title,Job.status,Job.comment,Job.assigned_to_id,Job.patient_id,Job.due_date,Job.job_id],callback);
   },
   initTable:function(){
@@ -33,7 +33,7 @@ var Job = {
     assigned_by_id MEDIUMINT NOT NULL,assigned_to_id MEDIUMINT NOT NULL, patient_id MEDIUMINT, due_date DATETIME, assigned_date TIMESTAMP, PRIMARY KEY (job_id))
      ENGINE=InnoDB DEFAULT CHARSET=latin1;` , function (error, results, fields) {
       if (error) {
-        console.log(error);
+        // console.log(error);
       }
     });
   }
@@ -80,7 +80,7 @@ router.post('/',function(req,res,next){
 router.delete('/:id',function(req,res,next){
  Job.deleteJob(req.params.id,function(err,result){
    if(err) {
-     console.log(err);
+    //  console.log(err);
      res.json(err);
    } else{
      res.json(result);
@@ -92,7 +92,7 @@ router.delete('/:id',function(req,res,next){
 router.put('/:id',function(req,res,next){
   Job.updateJob(req.params.id,req.body.Job,function(err,result){
     if(err) {
-      console.log(err);
+    //   console.log(err);
       res.json(err);
     } else{
       res.json(result);
