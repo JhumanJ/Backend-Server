@@ -2,8 +2,6 @@ var db = require('./database');
 var express = require("express");
 var router = express.Router();
 
-
-
 // ---------Referral CRUD Functions-----------
 
 var Referral = {
