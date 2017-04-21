@@ -16,7 +16,7 @@ var PatientAssignment = {
   },
   getPatientAssignmentByMeetingOccurence:function(id,callback){
       return db.query("select * from patient_assignments WHERE meeting_occurence_id=?",[id],callback);
-  }
+  },
   addPatientAssignment:function(PatientAssigment,callback){
     return db.query('INSERT INTO patient_assignments SET ?', PatientAssigment,callback);
   },
