@@ -44,7 +44,7 @@ var PatientAssignment = {
 
 router.get('/meeting_occurence/:id',function(req,res,next){
 
-    Referral.getPatientAssignmentByMeetingOccurence(req.params.id,function(err,rows){
+    PatientAssignment.getPatientAssignmentByMeetingOccurence(req.params.id,function(err,rows){
       if(err) {
         res.json(err);
       } else {
@@ -57,7 +57,7 @@ router.get('/meeting_occurence/:id',function(req,res,next){
 // Get a patient assigment by id - Get all patient assigment if id not specified
 router.get('/:id?',function(req,res,next){
   if(req.params.id){
-    Referral.getPatientAssignmentById(req.params.id,function(err,rows){
+    PatientAssignment.getPatientAssignmentById(req.params.id,function(err,rows){
       if(err) {
         res.json(err);
       } else {
@@ -65,7 +65,7 @@ router.get('/:id?',function(req,res,next){
       }
     });
   } else{
-    Referral.getAllPatientAssignments(function(err,rows){
+    PatientAssignment.getAllPatientAssignments(function(err,rows){
       if(err){
         res.json(err);
       } else {
@@ -77,7 +77,7 @@ router.get('/:id?',function(req,res,next){
 
 // Insert patient assigment
 router.post('/',function(req,res,next){
-  Referral.addPatientAssignment(req.body.PatientAssigment,function(err,result){
+  PatientAssignment.addPatientAssignment(req.body.PatientAssigment,function(err,result){
     if(err) {
       res.json(err);
     } else{
@@ -89,7 +89,7 @@ router.post('/',function(req,res,next){
 
 // Delete patient assigment
 router.delete('/:id',function(req,res,next){
- Referral.deletePatientAssignment(req.params.id,function(err,result){
+ PatientAssignment.deletePatientAssignment(req.params.id,function(err,result){
    if(err) {
      res.json(err);
    } else{
@@ -100,7 +100,7 @@ router.delete('/:id',function(req,res,next){
 
 // Update patient assigment
 router.put('/:id',function(req,res,next){
-  Referral.updatePatientAssignment(req.params.id,req.body.PatientAssigment,function(err,result){
+  PatientAssignment.updatePatientAssignment(req.params.id,req.body.PatientAssigment,function(err,result){
     if(err) {
       res.json(err);
     } else{
