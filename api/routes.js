@@ -81,6 +81,6 @@ module.exports = function(app){
     app.use('/api/specialities', speciality_router);
     app.use('/api/specialities_assigments', specialities_assigments_router);
     app.use('/api/referrals', referrals_router);
-    app.use('/api/patient_assigments', patient_assignment_router);
+    app.use('/api/patient_assignments', patient_assignment_router);
 
 }
