@@ -22,7 +22,9 @@ var Referral = {
   assignedReferral:function(callback){
     return db.query("select * from referrals where status=1",callback);
   },
-  assignedReferral:function(id,)
+  doneReferral:function(callback){
+    return db.query("select * from referrals where status=2",callback);
+  },
   addReferral:function(Referral,callback){
     return db.query('INSERT INTO referrals SET ?', Referral,callback);
   },
