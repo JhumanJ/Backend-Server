@@ -13,6 +13,10 @@ module.exports = function(app){
     var Referrals = require('./referrals');
     var referrals_router = require('./referrals').router;
 
+    // -- Patient assignments
+    var PatientAssignment = require('./patient_assignments');
+    var patient_assignment_router = require('./patient_assignments').router;
+
     // -- Scheduler
     var Scheduler = require('./scheduler/scheduler');
     var scheduler_router = require('./scheduler/scheduler').router;
@@ -44,6 +48,7 @@ module.exports = function(app){
         Speciality.initTable();
         SpecialityAssigment.initTable();
         Referrals.initTable();
+        PatientAssignment.initTable();
         res.json({ message: "Initialization queries executed." });
     });
 
@@ -76,5 +81,6 @@ module.exports = function(app){
     app.use('/api/specialities', speciality_router);
     app.use('/api/specialities_assigments', specialities_assigments_router);
     app.use('/api/referrals', referrals_router);
+    app.use('/api/patient_assigments', patient_assignment_router);
 
 }

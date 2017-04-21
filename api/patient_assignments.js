@@ -4,7 +4,7 @@ var router = express.Router();
 
 // ---------Patient Assignment CRUD Functions-----------
 
-var Patient_Assignment = {
+var PatientAssignment = {
 
   // patient_assigment_id, ehrID, speciality_id, meeting_occurence_id
 
@@ -108,5 +108,5 @@ router.put('/:id',function(req,res,next){
     }
   });
  });
-module.exports=Referral;
+module.exports=PatientAssignment;
 module.exports.router = router;
