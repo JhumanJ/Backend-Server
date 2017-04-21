@@ -14,16 +14,10 @@ var Referral = {
     return db.query("Select * from referrals",callback);
   },
   getReferralById:function(id,callback){
-    return db.query("select * from referrals where referral_id=?",[id],callback);
+    return db.query("select * from referrals WHERE referral_id=?",[id],callback);
   },
-  waitingReferral:function(callback){
-    return db.query("select * from referrals where status=0",callback);
-  },
-  assignedReferral:function(callback){
-    return db.query("select * from referrals where status=1",callback);
-  },
-  doneReferral:function(callback){
-    return db.query("select * from referrals where status=2",callback);
+  statusReferral:function(statusVAL,callback){
+    return db.query("select * from referrals WHERE status = ? ",[statusVAL],callback);
   },
   addReferral:function(Referral,callback){
     return db.query('INSERT INTO referrals SET ?', Referral,callback);
@@ -53,9 +47,30 @@ var Referral = {
 
 // ----------Referral ROUTES----------
 
+// waiting Referrals
+router.get('/waiting',function(req,res,next){
+  Referral.statusReferral(0,function(err,result){
+    if(err) {
+      res.json(err);
+    } else{
+      res.json(result);
+    }
+  });
+ });
+
+ //assigned referral
+ router.get('/assigned',function(req,res,next){
+   Referral.statusReferral(1,function(err,result){
+     if(err) {
+       res.json(err);
+     } else{
+       res.json(result);
+     }
+   });
+  });
+
 // Get a Referral by id - Get all Referral if id not specified
 router.get('/:id?',function(req,res,next){
-
   if(req.params.id){
     Referral.getReferralById(req.params.id,function(err,rows){
       if(err) {
@@ -108,28 +123,5 @@ router.put('/:id',function(req,res,next){
     }
   });
  });
-
- // waiting Referrals
- router.get('/waiting',function(req,res,next){
-   Referral.waitingReferral(function(err,result){
-     if(err) {
-       res.json(err);
-     } else{
-       res.json(result);
-     }
-   });
-  });
-
-  //assigned referral
-  router.get('/assigned',function(req,res,next){
-    Referral.assignedReferral(function(err,result){
-      if(err) {
-        res.json(err);
-      } else{
-        res.json(result);
-      }
-    });
-   });
-
 module.exports=Referral;
 module.exports.router = router;
