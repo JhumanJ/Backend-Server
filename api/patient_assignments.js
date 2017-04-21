@@ -33,7 +33,7 @@ var PatientAssignment = {
     speciality_id MEDIUMINT NOT NULL,
     meeting_occurence_id MEDIUMINT NOT NULL,
     ehrID varchar(500),
-      assigned_date TIMESTAMP, PRIMARY KEY (referral_id))
+      assigned_date TIMESTAMP, PRIMARY KEY (patient_assigment_id))
      ENGINE=InnoDB DEFAULT CHARSET=latin1;` , function (error, results, fields) {
     });
   }
