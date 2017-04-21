@@ -6,7 +6,7 @@ var router = express.Router();
 
 var PatientAssignment = {
 
-  // patient_assigment_id, ehrID, speciality_id, meeting_occurence_id
+  // patient_assigment_id, ehrID, speciality_id, meeting_occurence_id, referral_id
 
   getAllPatientAssignments:function(callback){
     return db.query("Select * from patient_assignments",callback);
@@ -25,13 +25,14 @@ var PatientAssignment = {
   },
   updatePatientAssignment:function(id,PatientAssigment,callback){
     PatientAssigment.patient_assigment_id = parseInt(id);
-    return db.query("UPDATE patient_assignments SET speciality_id=?, ehrID=?, meeting_occurence_id=? WHERE patient_assigment_id= ?",[PatientAssigment.speciality_id,PatientAssigment.ehrID,PatientAssigment.meeting_occurence_id,PatientAssigment.patient_assigment_id],callback);
+    return db.query("UPDATE patient_assignments SET speciality_id=?, ehrID=?, meeting_occurence_id=?, referral_id=? WHERE patient_assigment_id= ?",[PatientAssigment.speciality_id,PatientAssigment.ehrID,PatientAssigment.meeting_occurence_id,PatientAssigment.referral_id,PatientAssigment.patient_assigment_id],callback);
   },
   initTable:function(){
     var init = db.query(`CREATE TABLE IF NOT EXISTS patient_assignments
     (patient_assigment_id MEDIUMINT NOT NULL AUTO_INCREMENT,
     speciality_id MEDIUMINT NOT NULL,
     meeting_occurence_id MEDIUMINT NOT NULL,
+    referral_id MEDIUMINT NOT NULL,
     ehrID varchar(500),
       assigned_date TIMESTAMP, PRIMARY KEY (patient_assigment_id))
      ENGINE=InnoDB DEFAULT CHARSET=latin1;` , function (error, results, fields) {

@@ -27,6 +27,10 @@ var Referral = {
     Referral.referral_id = parseInt(id);
     return db.query("UPDATE referrals SET referred_by_id=?, ehrID=?, status=? WHERE referral_id= ?",[Referral.referred_by_id,Referral.ehrID,Referral.status,Referral.referral_id],callback);
   },
+  updateStatus:function(id,Referral,callback){
+    Referral.referral_id = parseInt(id);
+    return db.query("UPDATE referrals SET status=? WHERE referral_id= ?",[Referral.status,Referral.referral_id],callback);
+  },
   initTable:function(){
     var init = db.query(`CREATE TABLE IF NOT EXISTS referrals
     (referral_id MEDIUMINT NOT NULL AUTO_INCREMENT,
@@ -113,13 +117,27 @@ router.delete('/:id',function(req,res,next){
 
 // Update Referral
 router.put('/:id',function(req,res,next){
-  Referral.updateReferral(req.params.id,req.body.Referral,function(err,result){
-    if(err) {
-      res.json(err);
-    } else{
-      res.json(result);
-    }
-  });
+
+  var myRef = req.body.Referral;
+
+  if(myRef.hasOwnProperty('referred_by_id') || myRef.hasOwnProperty('ehrID')){
+      Referral.updateReferral(req.params.id,myRef,function(err,result){
+        if(err) {
+          res.json(err);
+        } else{
+          res.json(result);
+        }
+      });
+  } else {
+      Referral.updateStatus(req.params.id,myRef,function(err,result){
+        if(err) {
+          res.json(err);
+        } else{
+          res.json(result);
+        }
+      });
+  }
+
  });
 module.exports=Referral;
 module.exports.router = router;
