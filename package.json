@@ -26,6 +26,7 @@
     "express": "^4.15.2",
     "frisby": "^0.8.5",
     "install": "^0.8.8",
+    "method-override": "^2.3.8",
     "mysql": "^2.13.0",
     "npm": "^4.5.0"
   }

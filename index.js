@@ -1,9 +1,11 @@
 const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
+var methodOverride = require('method-override')
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(methodOverride('X-HTTP-Method-Override'))
 
 require('./api/routes')(app);
 

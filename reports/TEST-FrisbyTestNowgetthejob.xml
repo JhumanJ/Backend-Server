@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+<testsuite name="Frisby Test: Now get the job!" errors="0" tests="1" failures="0" time="0.092" timestamp="2017-04-21T19:32:25">
+  <testcase classname="Frisby Test: Now get the job!" name="
+	[ GET http://peachteam35.uksouth.cloudapp.azure.com:8080/api/jobs/28 ]" time="0.092"></testcase>
+</testsuite>
+</testsuites>
