@@ -1,0 +1,667 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Peach",
+		"_postman_id": "4eeda80a-1c36-1c26-1b25-b85649ee0211",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Jobs",
+			"description": "",
+			"item": [
+				{
+					"name": "api/jobs",
+					"request": {
+						"url": "{{apiURL}}/api/jobs/",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Get All jobs."
+					},
+					"response": []
+				},
+				{
+					"name": "api/jobs/{{job_id}}",
+					"request": {
+						"url": "{{apiURL}}/api/jobs/2",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Get a job by id"
+					},
+					"response": []
+				},
+				{
+					"name": "api/jobs/",
+					"request": {
+						"url": "{{apiURL}}/api/jobs/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Job\":{\n\t\t\"title\":\"title job\",\n\t\t\"comment\":\"comment job\",\n\t\t\"assigned_by_id\":2,\n\t\t\"assigned_to_id\":4,\n\t\t\"patient_id\":234,\n\t\t\"due_date\": \"2017-03-05 11:25:50\"\n\t}\n}"
+						},
+						"description": "Add a Job."
+					},
+					"response": []
+				},
+				{
+					"name": "api/jobs/1",
+					"request": {
+						"url": "{{apiURL}}/api/jobs/2",
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Delete jobs."
+					},
+					"response": []
+				},
+				{
+					"name": "api/jobs/2",
+					"request": {
+						"url": "{{apiURL}}/api/jobs/4",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Job\":{\n\t\t\"title\":\"title job updated\",\n\t\t\"comment\":\"comment job\",\n\t\t\"status\":1,\n\t\t\"assigned_by_id\":2,\n\t\t\"assigned_to_id\":4,\n\t\t\"patient_id\":234,\n\t\t\"due_date\": \"2017-03-05 11:25:50\"\n\t}\n}"
+						},
+						"description": "Update Job\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Meetings",
+			"description": "",
+			"item": [
+				{
+					"name": "http://localhost:3000/api/meetings/",
+					"request": {
+						"url": "{{apiURL}}/api/meetings/",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Get meetings"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/meetings/",
+					"request": {
+						"url": "{{apiURL}}/api/meetings/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Meeting\":{\n\t\t\"title\":\"Meeting title\",\n\t\t\"starting_time\": \"11:25:50\",\n\t\t\"ending_time\": \"11:25:50\"\n\t}\n}"
+						},
+						"description": "Post and create meeting"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/meetings/2",
+					"request": {
+						"url": "{{apiURL}}/api/meetings/2",
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Delete meeting\n"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/meetings/1",
+					"request": {
+						"url": "{{apiURL}}/api/meetings/1",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Meeting\":{\n\t\t\"title\": \"Meeting titledwedwedwedwedwededw\",\n\t    \"starting_time\": \"11:21:50\",\n\t    \"ending_time\": \"11:25:50\"\n\t}\n}"
+						},
+						"description": "Update Meeting\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Meetings Occurences",
+			"description": "",
+			"item": [
+				{
+					"name": "http://localhost:3000/api/meetings_occurences/",
+					"request": {
+						"url": "{{apiURL}}/api/meetings_occurences/",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Get all meetings occurences"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/meetings_occurences/05/2017",
+					"request": {
+						"url": "{{apiURL}}/api/meetings_occurences/05/2017",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Get meeting occurences by months"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/meetings_occurences/",
+					"request": {
+						"url": "{{apiURL}}/api/meetings_occurences/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"MeetingOccurence\":{\n\t\t\"meeting_id\": \"1\",\n\t\t\"occurence_date\": \"2017-05-15\"\n\t}\n}"
+						},
+						"description": "Post and create meeting occurences"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/meetings_occurences/3",
+					"request": {
+						"url": "{{apiURL}}/api/meetings_occurences/3",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"MeetingOccurence\":{\n\t\t\"meeting_id\": \"11\",\n\t\t\"occurence_date\": \"2017-05-15\"\n\t}\n}"
+						},
+						"description": "Update a meeting occurences"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/meetings_occurences/1",
+					"request": {
+						"url": "{{apiURL}}/api/meetings_occurences/1",
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Delete a meeting occurence"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Patient Assignments",
+			"description": "",
+			"item": [
+				{
+					"name": "api/patient_assignments/",
+					"request": {
+						"url": "{{apiURL}}/api/patient_assignments/",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Get all patient assignments"
+					},
+					"response": []
+				},
+				{
+					"name": "api/patient_assignments/",
+					"request": {
+						"url": "{{apiURL}}/api/patient_assignments/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"PatientAssigment\": {\n\t\t\"ehrID\":\"6f2f058d-e3f1-4352-8086-fd1da8963140\",\n\t\t\"speciality_id\": \"2\",\n\t\t\"meeting_occurence_id\":\"18\",\n\t\t\"referral_id\":23\n\t}\n}"
+						},
+						"description": "Create new patient assignment"
+					},
+					"response": []
+				},
+				{
+					"name": "api/patient_assignments/",
+					"request": {
+						"url": "{{apiURL}}/api/patient_assignments/1",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"PatientAssigment\": {\n\t\t\"ehrID\":\"6f2f058d-e3f1-4352-8086-fd1da8963140\",\n\t\t\"speciality_id\": \"2\",\n\t\t\"meeting_occurence_id\":\"19\"\n\t}\n}"
+						},
+						"description": "Edit patient assignment"
+					},
+					"response": []
+				},
+				{
+					"name": "api/patient_assignments/meeting_occurence",
+					"request": {
+						"url": "{{apiURL}}/api/patient_assignments/meeting_occurence/18",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Get all patient assignments in a given meeting occurence"
+					},
+					"response": []
+				},
+				{
+					"name": "api/patient_assignments/",
+					"request": {
+						"url": "{{apiURL}}/api/patient_assignments/2",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"PatientAssigment\": {\n\t\t\"ehrID\":\"6f2f058d-e3f1-4352-8086-fd1da8963140\",\n\t\t\"speciality_id\": \"2\",\n\t\t\"meeting_occurence_id\":\"19\"\n\t}\n}"
+						},
+						"description": "Delete patient assignment"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Referrals",
+			"description": "",
+			"item": [
+				{
+					"name": "/api/referrals/",
+					"request": {
+						"url": "{{apiURL}}/api/referrals/",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "get referrals"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/referrals/",
+					"request": {
+						"url": "{{apiURL}}/api/referrals/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Referral\":{\n\t\t\"referred_by_id\":\"12323\",\n\t\t\"ehrID\":\"6f2f058d-e3f1-4352-8086-fd1da8963140\"\n\t}\n}"
+						},
+						"description": "create referrals"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/referrals/",
+					"request": {
+						"url": "{{apiURL}}/api/referrals/1",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Referral\":{\n\t    \"referred_by_id\": 12323,\n\t    \"status\": 0,\n\t    \"ehrID\": \"6f2f058d-e3f1-4352-8086-fd1da8963140\"\n  \t}\n}"
+						},
+						"description": "update referrals"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/referrals/",
+					"request": {
+						"url": "{{apiURL}}/api/referrals/1",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Referral\":{\n\t\t\"referred_by_id\":\"12323\",\n\t\t\"ehrID\":\"2\",\n\t\t\"status\":2\n\t}\n}"
+						},
+						"description": "update referrals"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/referrals/waiting",
+					"request": {
+						"url": "{{apiURL}}/api/referrals/waiting",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "get waiting referrals"
+					},
+					"response": []
+				},
+				{
+					"name": "/api/referrals/assigned",
+					"request": {
+						"url": "{{apiURL}}/api/referrals/assigned",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "get assigned referrals"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Scheduler",
+			"description": "",
+			"item": [
+				{
+					"name": "api/scheduler/06/2017",
+					"request": {
+						"url": "{{apiURL}}/api/scheduler/05/2017",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Get all meetings in a month for the scheduler"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Specialities",
+			"description": "",
+			"item": [
+				{
+					"name": "http://localhost:3000/api/specialities/",
+					"request": {
+						"url": "{{apiURL}}/api/specialities/",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Speciality\":{\n\t\t\"speciality_id\": \"1\",\n\t\t\"name\": \"romsite\"\n\t}\n}"
+						},
+						"description": "Post a  speciality"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/specialities/",
+					"request": {
+						"url": "{{apiURL}}/api/specialities/",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "get all specialities"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/specialities/1",
+					"request": {
+						"url": "{{apiURL}}/api/specialities/1",
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Speciality\":{\n\t\t\"name\": \"romeeeesite\"\n\t}\n}"
+						},
+						"description": "Update speciality\n"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/specialities/1",
+					"request": {
+						"url": "{{apiURL}}/api/specialities/1",
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Delete speciality"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Specialities Assigments",
+			"description": "",
+			"item": [
+				{
+					"name": "http://localhost:3000/api/specialities_assigments",
+					"request": {
+						"url": "{{apiURL}}/api/specialities_assigments",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Get all specialities (add /:id) to search one\n"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/specialities_assigments",
+					"request": {
+						"url": "{{apiURL}}/api/specialities_assigments",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"SpecialityAssigment\":{\n\t\t\"speciality_id\": \"1\",\n\t\t\"meeting_id\": \"2\"\n\t}\n}"
+						},
+						"description": "Post/Create speciality assigment"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/specialities_assigments/1",
+					"request": {
+						"url": "{{apiURL}}/api/specialities_assigments/1",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"SpecialityAssigment\":{\n\t\t\"speciality_id\": \"2\",\n\t\t\"meeting_id\": \"2\"\n\t}\n}"
+						},
+						"description": "Put update specialities assigments"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/specialities_assigments/2",
+					"request": {
+						"url": "{{apiURL}}/api/specialities_assigments/2",
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "delete speciality assignment"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:3000/api/specialities_assigments/meeting/1",
+					"request": {
+						"url": "{{apiURL}}/api/specialities_assigments/meeting/1",
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"description": "Get all specialities involve in a meeting (id of meeting parameter)"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "http://localhost:3000/api/",
+			"request": {
+				"url": "http://localhost:3000/api/",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Home of API"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/init",
+			"request": {
+				"url": "{{apiURL}}/api/init",
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"description": "Create database tables if don't exist."
+			},
+			"response": []
+		}
+	]
+}

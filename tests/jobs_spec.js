@@ -1,6 +1,10 @@
 var frisby = require('frisby');
 var config = require("./config");
 
+// This test use frisby. Doc available here: http://frisbyjs.com/docs/api/
+// To run, cd in the project root and run $ jasmine-node tests
+
+
 // test get jobs
 console.log('Test 1: Get All Jobs!')
 frisby.create('Get All Jobs!')
@@ -29,7 +33,7 @@ var dataToPost = {
 	}
 }
 
-console.log('Test 3: Create and read job!')
+console.log('Test 3: Create, read and delte job!')
 frisby.create('Create job!')
 .post(config.baseURL+"jobs",dataToPost,{json: true})
 .expectHeaderContains('content-type', 'application/json')
@@ -53,8 +57,22 @@ frisby.create('Create job!')
             "due_date": "2017-03-05T11:25:50.000Z",
           }
       ])
+      .afterJSON(function(json) {
+          var myId = json[0].job_id;
+          frisby.create('Now delete the job!')
+            .post(config.baseURL+"jobs/"+myId)
+            .addHeader('X-HTTP-Method-Override', 'DELETE')
+            .expectStatus(200)
+            .expectJSON({ fieldCount: 0,
+              affectedRows: 1,
+              insertId: 0,
+              serverStatus: 2,
+              warningCount: 0,
+              message: '',
+              protocol41: true,
+              changedRows: 0 })
+          .toss()
+        })
     .toss()
   })
 .toss();
-
-console.log("Delete not supported as a HTTP method by frisby. A solution could be to add X-HTTP-Method in the header and allow the api to bind this to the specified request.");
